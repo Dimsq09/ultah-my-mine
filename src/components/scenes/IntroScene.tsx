@@ -86,10 +86,10 @@ export default function IntroScene({ onStart }: IntroSceneProps) {
         initial={{ opacity: 0, scale: 0.85, y: 30 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-        className="relative z-20 text-center px-6 max-w-md mx-auto"
+        className="relative z-20 text-center px-4 max-w-md w-full mx-auto my-auto py-6"
       >
         {/* Glowing card */}
-        <div className="relative mb-8">
+        <div className="relative mb-4 sm:mb-8">
           {/* Animated gradient border */}
           <motion.div
             className="absolute -inset-[2px] rounded-3xl"
@@ -98,12 +98,12 @@ export default function IntroScene({ onStart }: IntroSceneProps) {
             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
           />
           <div
-            className="relative rounded-3xl px-8 pt-8 pb-7"
-            style={{ background: "rgba(26,5,24,0.85)", backdropFilter: "blur(20px)" }}
+            className="relative rounded-3xl px-5 sm:px-8 pt-6 sm:pt-8 pb-6 sm:pb-7"
+            style={{ background: "rgba(26,5,24,0.88)", backdropFilter: "blur(20px)" }}
           >
             {/* Cake with halo */}
             <motion.div
-              className="flex justify-center mb-5"
+              className="flex justify-center mb-4 sm:mb-5"
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -114,27 +114,27 @@ export default function IntroScene({ onStart }: IntroSceneProps) {
                   filter: "blur(12px)",
                   transform: "scale(1.8)",
                 }} />
-                <div className="text-6xl md:text-7xl relative z-10">🎂</div>
+                <div className="text-5xl sm:text-7xl relative z-10">🎂</div>
                 <motion.div
                   className="absolute -top-1 -right-1 z-20"
                   animate={{ rotate: [0, 360], scale: [1, 1.3, 1] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <Sparkles className="w-5 h-5 text-yellow-300 drop-shadow-lg" />
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300 drop-shadow-lg" />
                 </motion.div>
                 <motion.div
                   className="absolute -bottom-1 -left-2 z-20"
                   animate={{ rotate: [360, 0], scale: [1, 1.2, 1] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                 >
-                  <Sparkles className="w-4 h-4 text-pink-300 drop-shadow-lg" />
+                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-pink-300 drop-shadow-lg" />
                 </motion.div>
               </div>
             </motion.div>
 
             {/* Title */}
             <motion.h1
-              className="font-playfair text-4xl md:text-5xl font-bold gradient-text mb-2 leading-tight"
+              className="font-playfair text-3xl sm:text-5xl font-bold gradient-text mb-2 leading-tight"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.7 }}
@@ -147,10 +147,10 @@ export default function IntroScene({ onStart }: IntroSceneProps) {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.7 }}
-              className="mb-4"
+              className="mb-3 sm:mb-4"
             >
               <span
-                className="font-dancing text-3xl md:text-4xl"
+                className="font-dancing text-3xl sm:text-4xl"
                 style={{ color: "#f9a8d4", textShadow: "0 0 25px rgba(249,168,212,0.8), 0 0 50px rgba(236,72,153,0.4)" }}
               >
                 {recipient.fullName}
@@ -159,7 +159,7 @@ export default function IntroScene({ onStart }: IntroSceneProps) {
 
             {/* Subtitle */}
             <motion.p
-              className="text-pink-200/70 text-sm md:text-base font-light mb-6 leading-relaxed"
+              className="text-pink-200/70 text-xs sm:text-base font-light mb-5 sm:mb-6 leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.9, duration: 0.7 }}
@@ -169,20 +169,20 @@ export default function IntroScene({ onStart }: IntroSceneProps) {
 
             {/* Divider */}
             <motion.div
-              className="flex items-center gap-3 justify-center mb-6"
+              className="flex items-center gap-3 justify-center mb-5 sm:mb-6"
               initial={{ opacity: 0, scaleX: 0 }}
               animate={{ opacity: 1, scaleX: 1 }}
               transition={{ delay: 1.0, duration: 0.7 }}
             >
               <div className="h-px flex-1 bg-gradient-to-r from-transparent to-pink-400/60" />
-              <span className="text-base">💕</span>
+              <span className="text-sm sm:text-base">💕</span>
               <div className="h-px flex-1 bg-gradient-to-l from-transparent to-pink-400/60" />
             </motion.div>
 
             {/* CTA Button */}
             <motion.button
               onClick={onStart}
-              className="relative group w-full py-3.5 rounded-2xl font-inter font-semibold text-base text-white overflow-hidden"
+              className="relative group w-full py-3 sm:py-3.5 rounded-2xl font-inter font-semibold text-sm sm:text-base text-white overflow-hidden"
               style={{
                 background: "linear-gradient(135deg, #be185d, #ec4899, #f472b6)",
                 boxShadow: "0 0 25px rgba(236,72,153,0.6), 0 4px 20px rgba(0,0,0,0.3)",

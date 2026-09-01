@@ -62,21 +62,21 @@ export default function GalleryScene({ onNext }: GallerySceneProps) {
     >
       <FloatingStars count={30} />
 
-      <div className="relative z-10 w-full max-w-2xl mx-auto px-4 py-8">
+      <div className="relative z-10 w-full max-w-2xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
         {/* Title */}
         <motion.div
-          className="text-center mb-8"
+          className="text-center mb-5 sm:mb-8"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold gradient-text mb-2">
+          <h2 className="font-playfair text-3xl sm:text-5xl font-bold gradient-text mb-1 sm:mb-2">
             {gallery.title}
           </h2>
-          <p className="text-pink-300/70 text-sm">{gallery.subtitle}</p>
+          <p className="text-pink-300/70 text-xs sm:text-sm">{gallery.subtitle}</p>
         </motion.div>
 
         {/* Polaroid Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3.5 sm:gap-8">
           {gallery.photos.map((photo, index) => (
             <motion.div
               key={photo.id}
@@ -97,12 +97,13 @@ export default function GalleryScene({ onNext }: GallerySceneProps) {
                 rotate: { duration: 0.5, delay: index * 0.12 },
               }}
               whileHover={{
-                scale: 1.08,
+                scale: 1.05,
                 rotate: 0,
                 zIndex: 10,
                 boxShadow: "0 20px 50px rgba(0,0,0,0.6)",
                 transition: { duration: 0.2 },
               }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => setSelectedPhoto(index)}
               className="polaroid cursor-pointer transition-all relative"
               style={{ rotate: `${photo.rotation}deg` }}
@@ -121,7 +122,7 @@ export default function GalleryScene({ onNext }: GallerySceneProps) {
                   <div
                     className={`w-full h-full bg-gradient-to-br ${photo.gradient} flex items-center justify-center`}
                   >
-                    <span className="text-4xl">
+                    <span className="text-3xl sm:text-4xl">
                       {["😄", "💑", "🌸", "😂", "✨", "💫"][index]}
                     </span>
                   </div>
@@ -129,7 +130,7 @@ export default function GalleryScene({ onNext }: GallerySceneProps) {
               </div>
 
               {/* Caption */}
-              <p className="text-center mt-2 text-gray-600 text-xs font-inter leading-tight">
+              <p className="text-center mt-1.5 sm:mt-2 text-gray-600 text-[10px] sm:text-xs font-inter leading-tight">
                 {photo.caption}
               </p>
 
@@ -137,7 +138,7 @@ export default function GalleryScene({ onNext }: GallerySceneProps) {
               {STICKERS[index]?.map((sticker, si) => (
                 <motion.div
                   key={si}
-                  className={`absolute ${sticker.pos} w-10 h-10 pointer-events-none z-20`}
+                  className={`absolute ${sticker.pos} w-7 h-7 sm:w-10 sm:h-10 pointer-events-none z-20`}
                   initial={{ scale: 0, rotate: 0 }}
                   animate={{ scale: 1, rotate: [0, 5, -5, 0] }}
                   transition={{
@@ -148,8 +149,8 @@ export default function GalleryScene({ onNext }: GallerySceneProps) {
                   <Image
                     src={sticker.src}
                     alt="stiker"
-                    width={44}
-                    height={44}
+                    width={40}
+                    height={40}
                     className={`w-full h-full object-contain drop-shadow-lg ${sticker.rot}`}
                     unoptimized
                   />
@@ -161,14 +162,14 @@ export default function GalleryScene({ onNext }: GallerySceneProps) {
 
         {/* Next button */}
         <motion.div
-          className="flex justify-center mt-8"
+          className="flex justify-center mt-6 sm:mt-8 pb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
         >
           <motion.button
             onClick={onNext}
-            className="flex items-center gap-2 px-8 py-3 rounded-full font-semibold text-white"
+            className="flex items-center gap-2 px-7 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold text-white text-sm sm:text-base"
             style={{
               background: "linear-gradient(135deg, #db2777, #ec4899)",
               boxShadow: "0 4px 20px rgba(236, 72, 153, 0.5)",

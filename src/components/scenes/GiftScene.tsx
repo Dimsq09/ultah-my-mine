@@ -39,10 +39,10 @@ export default function GiftScene({ onNext }: GiftSceneProps) {
     >
       <FloatingStars count={25} />
 
-      <div className="relative z-10 flex flex-col items-center px-4">
+      <div className="relative z-10 flex flex-col items-center px-4 py-6 sm:py-8 max-w-full">
         {/* Title */}
         <motion.h2
-          className="font-playfair text-4xl md:text-5xl font-bold gradient-text mb-10 text-center"
+          className="font-playfair text-3xl sm:text-5xl font-bold gradient-text mb-6 sm:mb-10 text-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -54,7 +54,7 @@ export default function GiftScene({ onNext }: GiftSceneProps) {
         <div className="relative" style={{ perspective: "800px" }}>
           {/* Glow base */}
           <motion.div
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-40 h-8 rounded-full"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 sm:w-40 h-6 sm:h-8 rounded-full"
             style={{
               background: "radial-gradient(ellipse, rgba(236,72,153,0.6) 0%, transparent 70%)",
               filter: "blur(10px)",
@@ -77,7 +77,7 @@ export default function GiftScene({ onNext }: GiftSceneProps) {
             >
               {/* Lid top */}
               <div
-                className="w-48 h-12 rounded-t-lg mx-auto flex items-center justify-center"
+                className="w-40 sm:w-48 h-10 sm:h-12 rounded-t-lg mx-auto flex items-center justify-center relative"
                 style={{
                   background: "linear-gradient(135deg, #db2777, #ec4899)",
                   boxShadow: "0 -4px 20px rgba(236,72,153,0.4)",
@@ -85,19 +85,19 @@ export default function GiftScene({ onNext }: GiftSceneProps) {
               >
                 {/* Ribbon cross on lid */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-6 h-full bg-pink-300/40 absolute" />
+                  <div className="w-5 sm:w-6 h-full bg-pink-300/40 absolute" />
                 </div>
                 {/* Bow */}
                 <div className="relative">
-                  <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex gap-1">
+                  <div className="absolute -top-5 sm:-top-6 left-1/2 -translate-x-1/2 flex gap-1">
                     <motion.div
-                      className="w-8 h-6 rounded-full"
+                      className="w-6 sm:w-8 h-5 sm:h-6 rounded-full"
                       style={{ background: "linear-gradient(135deg, #f472b6, #fbcfe8)" }}
                       animate={isOpened ? {} : { rotate: [-3, 3, -3] }}
                       transition={{ duration: 1.5, repeat: Infinity }}
                     />
                     <motion.div
-                      className="w-8 h-6 rounded-full"
+                      className="w-6 sm:w-8 h-5 sm:h-6 rounded-full"
                       style={{ background: "linear-gradient(135deg, #f472b6, #fbcfe8)" }}
                       animate={isOpened ? {} : { rotate: [3, -3, 3] }}
                       transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
@@ -114,7 +114,7 @@ export default function GiftScene({ onNext }: GiftSceneProps) {
               transition={{ duration: 0.3, delay: 0.5 }}
             >
               <div
-                className="w-48 h-40 rounded-b-lg relative overflow-hidden"
+                className="w-40 sm:w-48 h-32 sm:h-40 rounded-b-lg relative overflow-hidden"
                 style={{
                   background: "linear-gradient(160deg, #9d174d, #db2777)",
                   boxShadow: "0 10px 40px rgba(236,72,153,0.5), 0 20px 60px rgba(0,0,0,0.4)",
@@ -122,13 +122,13 @@ export default function GiftScene({ onNext }: GiftSceneProps) {
               >
                 {/* Ribbon vertical */}
                 <div className="absolute inset-x-0 top-0 bottom-0 flex justify-center">
-                  <div className="w-6 bg-pink-300/30 h-full" />
+                  <div className="w-5 sm:w-6 bg-pink-300/30 h-full" />
                 </div>
                 {/* Polka dots */}
                 {[...Array(8)].map((_, i) => (
                   <div
                     key={i}
-                    className="absolute w-3 h-3 rounded-full bg-white/10"
+                    className="absolute w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-white/10"
                     style={{
                       left: `${(i % 3) * 35 + 8}%`,
                       top: `${Math.floor(i / 3) * 35 + 10}%`,
@@ -143,11 +143,11 @@ export default function GiftScene({ onNext }: GiftSceneProps) {
               {isOpened && (
                 <motion.div
                   initial={{ opacity: 0, y: 40, scale: 0.5 }}
-                  animate={{ opacity: 1, y: -60, scale: 1 }}
+                  animate={{ opacity: 1, y: -50, scale: 1 }}
                   transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
                   className="absolute inset-x-0 bottom-0 flex justify-center"
                 >
-                  <div className="text-6xl filter drop-shadow-lg">💝</div>
+                  <div className="text-5xl sm:text-6xl filter drop-shadow-lg">💝</div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -161,7 +161,7 @@ export default function GiftScene({ onNext }: GiftSceneProps) {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.8 }}
-              className="mt-16 text-center max-w-md"
+              className="mt-8 sm:mt-14 text-center max-w-sm sm:max-w-md px-2"
             >
               {/* Light burst */}
               <motion.div
@@ -174,14 +174,14 @@ export default function GiftScene({ onNext }: GiftSceneProps) {
                 }}
               />
 
-              <p className="font-playfair text-2xl md:text-3xl text-white font-bold leading-relaxed mb-3">
+              <p className="font-playfair text-xl sm:text-3xl text-white font-bold leading-relaxed mb-3">
                 {gift.message}
               </p>
-              <p className="font-dancing text-xl text-pink-300">{gift.subMessage}</p>
+              <p className="font-dancing text-lg sm:text-xl text-pink-300">{gift.subMessage}</p>
 
               <motion.button
                 onClick={onNext}
-                className="mt-8 flex items-center gap-2 px-8 py-3 rounded-full font-semibold text-white mx-auto"
+                className="mt-6 sm:mt-8 flex items-center gap-2 px-7 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold text-white text-sm sm:text-base mx-auto"
                 style={{
                   background: "linear-gradient(135deg, #db2777, #ec4899)",
                   boxShadow: "0 4px 20px rgba(236, 72, 153, 0.5)",
