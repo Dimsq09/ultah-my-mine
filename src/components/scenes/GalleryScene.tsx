@@ -6,6 +6,7 @@ import { X, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import FloatingStars from "@/components/ui/FloatingStars";
 import { birthdayConfig } from "@/config/config";
+import { getAssetPath } from "@/utils/assetPath";
 
 interface GallerySceneProps {
   onNext: () => void;
@@ -112,7 +113,7 @@ export default function GalleryScene({ onNext }: GallerySceneProps) {
               <div className="w-full aspect-square overflow-hidden bg-gray-100">
                 {photo.src ? (
                   <Image
-                    src={photo.src}
+                    src={getAssetPath(photo.src)}
                     alt={photo.caption}
                     width={300}
                     height={300}
@@ -147,7 +148,7 @@ export default function GalleryScene({ onNext }: GallerySceneProps) {
                   }}
                 >
                   <Image
-                    src={sticker.src}
+                    src={getAssetPath(sticker.src)}
                     alt="stiker"
                     width={40}
                     height={40}
@@ -204,7 +205,7 @@ export default function GalleryScene({ onNext }: GallerySceneProps) {
               <div className="w-full aspect-square overflow-hidden bg-gray-100">
                 {gallery.photos[selectedPhoto].src ? (
                   <Image
-                    src={gallery.photos[selectedPhoto].src!}
+                    src={getAssetPath(gallery.photos[selectedPhoto].src!)}
                     alt={gallery.photos[selectedPhoto].caption}
                     width={400}
                     height={400}
@@ -231,7 +232,7 @@ export default function GalleryScene({ onNext }: GallerySceneProps) {
                   className={`absolute ${sticker.pos} w-12 h-12 pointer-events-none z-20`}
                 >
                   <Image
-                    src={sticker.src}
+                    src={getAssetPath(sticker.src)}
                     alt="stiker"
                     width={52}
                     height={52}
