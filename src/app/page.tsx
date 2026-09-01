@@ -1,42 +1,28 @@
 "use client";
 
-import dynamic from "next/dynamic";
-
-function BirthdayLoader() {
-  return (
-    <div
-      style={{
-        width: "100vw",
-        height: "100dvh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "#080f1e",
-        gap: "16px",
-      }}
-    >
-      <div style={{ fontSize: "48px" }}>🎂</div>
-      <p
-        style={{
-          color: "#a5b4fc",
-          fontFamily: "sans-serif",
-          fontSize: "14px",
-          letterSpacing: "0.1em",
-          margin: 0,
-        }}
-      >
-        Memuat...
-      </p>
-    </div>
-  );
-}
-
-const BirthdayApp = dynamic(() => import("@/components/BirthdayApp"), {
-  ssr: false,
-  loading: BirthdayLoader,
-});
+import { useEffect, useState } from "react";
+import BirthdayApp from "@/components/BirthdayApp";
 
 export default function Home() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div
+        className="w-full h-dvh flex flex-col items-center justify-center gap-4"
+        style={{ background: "#1a0518" }}
+      >
+        <div className="text-5xl animate-bounce">🎂</div>
+        <p className="text-pink-300 font-inter text-sm tracking-widest">
+          Memuat...
+        </p>
+      </div>
+    );
+  }
+
   return <BirthdayApp />;
 }
