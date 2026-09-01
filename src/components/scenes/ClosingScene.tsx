@@ -96,7 +96,7 @@ export default function ClosingScene() {
       <FloatingStars count={20} />
 
       {/* Main content */}
-      <div className="relative z-10 text-center px-6 max-w-xl mx-auto">
+      <div className="relative z-10 text-center px-3 max-w-[92vw] sm:max-w-xl mx-auto my-auto py-6">
 
         {/* Animated halo rings behind the title */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none -z-10">
@@ -116,7 +116,7 @@ export default function ClosingScene() {
 
         {/* Big pulsing heart */}
         <motion.div
-          className="text-5xl md:text-6xl mb-5 flex justify-center"
+          className="text-5xl sm:text-6xl mb-4 flex justify-center"
           animate={{ scale: [1, 1.25, 1], y: [0, -6, 0] }}
           transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -136,7 +136,7 @@ export default function ClosingScene() {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="mb-3"
         >
-          <h1 className="font-playfair font-bold leading-tight" style={{ fontSize: "clamp(2.8rem, 8vw, 5rem)" }}>
+          <h1 className="font-playfair font-bold leading-tight" style={{ fontSize: "clamp(3rem, 10vw, 5rem)" }}>
             <span className="gradient-text">Happy</span>
             <br />
             <span className="gradient-text">Birthday!</span>
@@ -148,15 +148,15 @@ export default function ClosingScene() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mb-6"
+          className="mb-5"
         >
-          <div className="inline-block px-6 py-2 rounded-full" style={{
-            background: "rgba(236,72,153,0.15)",
-            border: "1px solid rgba(249,168,212,0.35)",
+          <div className="inline-block px-7 py-2.5 rounded-full" style={{
+            background: "rgba(236,72,153,0.18)",
+            border: "1px solid rgba(249,168,212,0.4)",
             backdropFilter: "blur(10px)",
           }}>
             <span
-              className="font-dancing text-4xl md:text-5xl"
+              className="font-dancing text-4xl sm:text-5xl"
               style={{ color: "#f9a8d4", textShadow: "0 0 30px rgba(249,168,212,0.8)" }}
             >
               {recipient.fullName}
@@ -166,7 +166,7 @@ export default function ClosingScene() {
 
         {/* Separator */}
         <motion.div
-          className="flex items-center gap-4 justify-center mb-6"
+          className="flex items-center gap-4 justify-center mb-5"
           initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
@@ -181,14 +181,14 @@ export default function ClosingScene() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className="mb-8 px-6 py-5 rounded-2xl"
+          className="mb-7 px-6 py-6 sm:px-8 sm:py-7 rounded-3xl"
           style={{
-            background: "rgba(255,255,255,0.06)",
-            border: "1px solid rgba(249,168,212,0.2)",
-            backdropFilter: "blur(10px)",
+            background: "rgba(255,255,255,0.08)",
+            border: "1px solid rgba(249,168,212,0.25)",
+            backdropFilter: "blur(12px)",
           }}
         >
-          <p className="font-inter text-pink-100/90 text-sm md:text-base leading-relaxed">
+          <p className="font-inter text-pink-100 text-base sm:text-lg leading-relaxed font-medium">
             {closing.message}
           </p>
         </motion.div>

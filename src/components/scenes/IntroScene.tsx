@@ -86,7 +86,7 @@ export default function IntroScene({ onStart }: IntroSceneProps) {
         initial={{ opacity: 0, scale: 0.85, y: 30 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-        className="relative z-20 text-center px-4 max-w-md w-full mx-auto my-auto py-6"
+        className="relative z-20 text-center px-2 max-w-[92vw] sm:max-w-md w-full mx-auto my-auto py-6"
       >
         {/* Glowing card */}
         <div className="relative mb-4 sm:mb-8">
@@ -98,7 +98,7 @@ export default function IntroScene({ onStart }: IntroSceneProps) {
             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
           />
           <div
-            className="relative rounded-3xl px-5 sm:px-8 pt-6 sm:pt-8 pb-6 sm:pb-7"
+            className="relative rounded-3xl px-6 sm:px-8 pt-7 sm:pt-9 pb-7 sm:pb-8"
             style={{ background: "rgba(26,5,24,0.88)", backdropFilter: "blur(20px)" }}
           >
             {/* Cake with halo */}
@@ -114,20 +114,20 @@ export default function IntroScene({ onStart }: IntroSceneProps) {
                   filter: "blur(12px)",
                   transform: "scale(1.8)",
                 }} />
-                <div className="text-5xl sm:text-7xl relative z-10">🎂</div>
+                <div className="text-6xl sm:text-7xl relative z-10">🎂</div>
                 <motion.div
                   className="absolute -top-1 -right-1 z-20"
                   animate={{ rotate: [0, 360], scale: [1, 1.3, 1] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300 drop-shadow-lg" />
+                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-300 drop-shadow-lg" />
                 </motion.div>
                 <motion.div
                   className="absolute -bottom-1 -left-2 z-20"
                   animate={{ rotate: [360, 0], scale: [1, 1.2, 1] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                 >
-                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-pink-300 drop-shadow-lg" />
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-pink-300 drop-shadow-lg" />
                 </motion.div>
               </div>
             </motion.div>
@@ -150,7 +150,7 @@ export default function IntroScene({ onStart }: IntroSceneProps) {
               className="mb-3 sm:mb-4"
             >
               <span
-                className="font-dancing text-3xl sm:text-4xl"
+                className="font-dancing text-4xl sm:text-5xl"
                 style={{ color: "#f9a8d4", textShadow: "0 0 25px rgba(249,168,212,0.8), 0 0 50px rgba(236,72,153,0.4)" }}
               >
                 {recipient.fullName}
@@ -159,7 +159,7 @@ export default function IntroScene({ onStart }: IntroSceneProps) {
 
             {/* Subtitle */}
             <motion.p
-              className="text-pink-200/70 text-xs sm:text-base font-light mb-5 sm:mb-6 leading-relaxed"
+              className="text-pink-200/80 text-sm sm:text-base font-light mb-6 sm:mb-7 leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.9, duration: 0.7 }}

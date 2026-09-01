@@ -70,10 +70,10 @@ export default function MessageScene({ onNext }: MessageSceneProps) {
         </motion.div>
       ))}
 
-      <div className="relative z-10 w-full max-w-xl mx-auto px-4">
+      <div className="relative z-10 w-full max-w-[92vw] sm:max-w-xl mx-auto my-auto px-2 sm:px-4 py-4">
         {/* Animated gradient border wrapper */}
         <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.93 }}
+          initial={{ opacity: 0, y: 40, scale: 0.94 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="relative"
@@ -88,15 +88,15 @@ export default function MessageScene({ onNext }: MessageSceneProps) {
 
           {/* Card inner */}
           <div
-            className="relative z-10 rounded-3xl px-7 pt-7 pb-6"
+            className="relative z-10 rounded-3xl px-6 py-7 sm:px-8 sm:py-9"
             style={{
               background: "rgba(255,255,255,0.97)",
-              boxShadow: "0 20px 60px rgba(236,72,153,0.2), 0 8px 24px rgba(0,0,0,0.15)",
+              boxShadow: "0 25px 65px rgba(236,72,153,0.3), 0 8px 24px rgba(0,0,0,0.15)",
             }}
           >
             {/* Hearts top */}
             <motion.div
-              className="text-3xl mb-4 text-center"
+              className="text-4xl sm:text-5xl mb-4 text-center"
               animate={{ scale: [1, 1.15, 1], y: [0, -4, 0] }}
               transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -105,43 +105,43 @@ export default function MessageScene({ onNext }: MessageSceneProps) {
 
             {/* Title */}
             <h2
-              className="font-playfair text-2xl md:text-3xl font-bold text-center mb-2 leading-snug"
+              className="font-playfair text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-3 leading-snug"
               style={{ color: "#881337" }}
             >
               {message.title}
             </h2>
 
             {/* Divider */}
-            <div className="flex items-center gap-3 justify-center mb-5">
+            <div className="flex items-center gap-3 justify-center mb-6">
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-pink-300 to-pink-400" />
-              <span className="text-sm">🌸</span>
+              <span className="text-base">🌸</span>
               <div className="h-px flex-1 bg-gradient-to-l from-transparent via-pink-300 to-pink-400" />
             </div>
 
             {/* Messages */}
-            <div className="space-y-3 min-h-[180px]">
+            <div className="space-y-4 min-h-[240px] sm:min-h-[280px]">
               {displayedMessages.map((msg, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="flex items-start gap-2.5"
+                  className="flex items-start gap-3"
                 >
-                  <span className="text-lg mt-0.5 flex-shrink-0">💗</span>
-                  <p className="text-gray-700 text-sm md:text-base leading-relaxed font-inter">
+                  <span className="text-xl sm:text-2xl mt-0.5 flex-shrink-0">💗</span>
+                  <p className="text-gray-800 text-base sm:text-lg leading-relaxed font-inter font-medium">
                     {msg}
                   </p>
                 </motion.div>
               ))}
 
               {!isComplete && (
-                <div className="flex items-start gap-2.5">
-                  <span className="text-lg mt-0.5 flex-shrink-0">💗</span>
-                  <p className="text-gray-700 text-sm md:text-base leading-relaxed font-inter">
+                <div className="flex items-start gap-3">
+                  <span className="text-xl sm:text-2xl mt-0.5 flex-shrink-0">💗</span>
+                  <p className="text-gray-800 text-base sm:text-lg leading-relaxed font-inter font-medium">
                     {currentText}
                     <span
-                      className="inline-block w-0.5 h-4 bg-pink-500 ml-0.5 align-middle rounded-full"
+                      className="inline-block w-0.5 h-5 bg-pink-500 ml-0.5 align-middle rounded-full"
                       style={{ opacity: cursorVisible ? 1 : 0 }}
                     />
                   </p>
@@ -156,11 +156,11 @@ export default function MessageScene({ onNext }: MessageSceneProps) {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="flex justify-end mt-6"
+                  className="flex justify-end mt-7"
                 >
                   <motion.button
                     onClick={onNext}
-                    className="relative flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-white text-sm overflow-hidden"
+                    className="relative flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-white text-base overflow-hidden"
                     style={{
                       background: "linear-gradient(135deg, #be185d, #ec4899, #f472b6)",
                       boxShadow: "0 4px 20px rgba(236,72,153,0.55)",
@@ -174,7 +174,7 @@ export default function MessageScene({ onNext }: MessageSceneProps) {
                       transition={{ duration: 1.8, repeat: Infinity, ease: "linear", repeatDelay: 1 }}
                     />
                     <span className="relative z-10">Next</span>
-                    <ChevronRight className="w-4 h-4 relative z-10" />
+                    <ChevronRight className="w-5 h-5 relative z-10" />
                   </motion.button>
                 </motion.div>
               )}
